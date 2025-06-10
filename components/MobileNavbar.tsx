@@ -48,7 +48,7 @@ const MobileNavbar = ({ userId }: { userId: string | null }) => {
           </div>
           <div className="w-full px-4">
             {userId ? (
-              <Link href="/dashboard">
+              <Link href="/dashboard/medical-report">
                 <button className="px-6 py-3 rounded-full bg-colprimary cursor-pointer w-full">
                   Dashboard
                 </button>

@@ -9,7 +9,7 @@ import { useTheme } from "next-themes";
 const FeatureList = () => {
   const { theme } = useTheme();
   return (
-    <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4">
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
       <Card className="p-0 max-w-sm w-full mx-auto shadow-md border-none">
         <MagicCard
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
@@ -21,7 +21,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[250px] object-cover"
+              className="rounded-md w-[450px] h-[350px] object-cover"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
@@ -45,7 +45,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[250px] object-cover"
+              className="rounded-md w-[450px] h-[350px] object-cover"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
@@ -69,7 +69,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[250px] object-cover"
+              className="rounded-md w-[450px] h-[350px] object-cover"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
@@ -82,7 +82,7 @@ const FeatureList = () => {
           </CardFooter>
         </MagicCard>
       </Card>
-      <Card className="p-0 max-w-sm w-full mx-auto shadow-md border-none">
+      <Card className="p-0 max-w-sm w-full h-[498px] mx-auto shadow-md border-none">
         <MagicCard
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
           className="p-0"
@@ -93,15 +93,14 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[250px] object-cover"
+              className="rounded-md w-[450px] h-[350px] object-cover"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
             <h3 className="text-xl">Medication Guide & Interaction Checker</h3>
             <p className="text-muted-foreground text-sm text-center">
               Scan foto obat untuk info lengkap dalam bahasa Indonesia Check
-              interaksi antar obat yang sedang dikonsumsi Reminder schedule dan
-              side effects warning
+              interaksi antar obat yang sedang dikonsumsi
             </p>
           </CardFooter>
         </MagicCard>
@@ -117,7 +116,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[250px] object-cover"
+              className="rounded-md w-[450px] h-[350px] object-cover"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
@@ -140,7 +139,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[250px] object-cover"
+              className="rounded-md w-[450px] h-[350px] object-cover"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">

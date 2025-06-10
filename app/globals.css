@@ -154,4 +154,8 @@ body {
   .text-hero {
     @apply md:text-5xl text-4xl font-bold tracking-wide leading-tight text-shadow-lg/20;
   }
+
+  .dashboard-root {
+    @apply p-4;
+  }
 }

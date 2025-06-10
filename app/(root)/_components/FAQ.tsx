@@ -16,7 +16,7 @@ const faqs = [
     answer: "Liat sendiri lah, jangan males baca.",
   },
   {
-    question: "Apakah hasil analisis dokumen dapat diakses secara publik?",
+    question: "Apakah hasil analisis dokumen dapat dibagi secara publik?",
     answer: "Simpen aja sendiri, jangan dibagi-bagi.",
   },
 ];

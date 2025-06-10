@@ -28,7 +28,7 @@ const Navbar = async () => {
         </div>
         <div className="lg:flex hidden items-center gap-4 justify-end">
           {userId ? (
-            <Link href="/dashboard">
+            <Link href="/dashboard/medical-report">
               <button className="btn-cta">Dashboard</button>
             </Link>
           ) : (
