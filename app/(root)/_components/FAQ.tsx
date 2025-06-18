@@ -33,7 +33,7 @@ const Faq = () => {
         </Badge>
         <p className="text-muted-foreground text-sm w-[400px] text-center">
           Jika Anda Memiliki Pertanyaan atau Masalah Yang Tidak Tercantum Di
-          Bawah Ini, Silakan Hubungi Kami.
+          Bawah Ini, Silakan Hubungi Kami
         </p>
       </div>
 

@@ -9,7 +9,8 @@ import { Menu } from "lucide-react";
 import Image from "next/image";
 import { navItems } from "./NavItems";
 import Link from "next/link";
-import { ModeToggle } from "./ModeToggle";
+
+
 
 const MobileNavbar = ({ userId }: { userId: string | null }) => {
   return (

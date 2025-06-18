@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id @default(cuid())
+  clerkId        String   @unique
+  email          String   @unique
+  name           String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  medicalReports MedicalReport[]
+  symptoms       SymptomEntry[]
+  medications    MedicationEntry[]
+  timelineEvents TimelineEvent[]
+  consultationPrep ConsultationPrep[]
+}
+
+model MedicalReport {
+  id             String   @id @default(cuid())
+  userId         String
+  title          String
+  fileUrl        String   
+  extractedText  String?  @db.Text
+  explanation    String?  @db.Text  
+  createdAt      DateTime @default(now())
+
+  user           User     @relation(fields: [userId], references: [id])
+  riskAnalysis   RiskAnalysis?
+}
+
+model RiskAnalysis {
+  id             String   @id @default(cuid())
+  reportId       String   @unique
+  diabetesRisk   Int?
+  hypertensionRisk Int?
+  cholesterolRisk Int?
+  lifestyleTips  Json?
+
+  report         MedicalReport @relation(fields: [reportId], references: [id])
+}
+
+model SymptomEntry {
+  id             String   @id @default(cuid())
+  userId         String
+  symptoms       String   // input user (free text)
+  recommendedSpecialist String?
+  urgencyLevel   String?  // emergency, urgent, routine
+  createdAt      DateTime @default(now())
+
+  user           User     @relation(fields: [userId], references: [id])
+}
+
+model MedicationEntry {
+  id             String   @id @default(cuid())
+  userId         String
+  drugName       String
+  photoUrl       String?
+  description    String?
+  dosage         String?
+  interactions   Json?
+  sideEffects    Json?
+  createdAt      DateTime @default(now())
+
+  user           User     @relation(fields: [userId], references: [id])
+}
+
+
+model TimelineEvent {
+  id             String   @id @default(cuid())
+  userId         String
+  type           String   // e.g. "report", "consultation", "medication"
+  title          String
+  date           DateTime
+  data           Json?
+
+  user           User     @relation(fields: [userId], references: [id])
+}
+
+model ConsultationPrep {
+  id             String   @id @default(cuid())
+  userId         String
+  symptomsSummary String?
+  suggestedQuestions Json?
+  followUpItems   Json?
+  createdAt       DateTime @default(now())
+
+  user            User     @relation(fields: [userId], references: [id])
+}
+
+

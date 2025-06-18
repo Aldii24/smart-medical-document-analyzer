@@ -4,15 +4,18 @@ import NavItems from "./NavItems";
 import { ModeToggle } from "./ModeToggle";
 import { auth } from "@clerk/nextjs/server";
 import MobileNavbar from "./MobileNavbar";
+import { syncUser } from "@/actions/user.action";
 
 const Navbar = async () => {
   const { userId } = await auth();
+
+  if (userId) await syncUser();
 
   return (
     <nav className="navbar">
       <div className="sub-navbar">
         <div className="flex items-center gap-24">
-          <Link href="/" className="flex items-center">
+          <Link href="/#hero" className="flex items-center">
             <Image
               src="/images/smda.png"
               alt="logo"

@@ -1,17 +1,6 @@
 "use client";
 
 import {
-  BookType,
-  BriefcaseMedical,
-  Calendar,
-  ChartLine,
-  History,
-  ScanSearch,
-  Search,
-  Settings,
-} from "lucide-react";
-
-import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
@@ -24,39 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-
-const items = [
-  {
-    title: "Laporan Medis",
-    url: "/dashboard/medical-report",
-    icon: BookType,
-  },
-  {
-    title: "Risiko Kesehatan",
-    url: "/dashboard/health-risk",
-    icon: ChartLine,
-  },
-  {
-    title: "Pencocokan Gejala",
-    url: "/dashboard/symptom-matcher",
-    icon: ScanSearch,
-  },
-  {
-    title: "Panduan Pengobatan",
-    url: "/dashboard/medication-guide",
-    icon: BriefcaseMedical,
-  },
-  {
-    title: "Riwayat Medis",
-    url: "/dashboard/medical-history",
-    icon: History,
-  },
-  {
-    title: "Persiapan Telemedis",
-    url: "/dashboard/telemedicine-preparation",
-    icon: Settings,
-  },
-];
+import { items } from "@/constant";
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -81,7 +38,7 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     className={cn(
-                      "px-4 py-5 border rounded-full text-foreground hover:bg-colprimary/90 flex items-center gap-4 transition-all duration-200 hover:text-white",
+                      "px-4 py-5 border rounded-full text-foreground hover:bg-colprimary/90 flex items-center gap-4 transition-all duration-200 hover:text-white shadow-md",
                       pathname === item.url &&
                         "bg-colprimary font-semibold text-white"
                     )}

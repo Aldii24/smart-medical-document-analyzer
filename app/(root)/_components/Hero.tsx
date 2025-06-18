@@ -3,7 +3,10 @@ import IntructionVideo from "./IntructionVideo";
 
 const Hero = () => {
   return (
-    <div className="w-full flex lg:flex-row flex-col gap-10 md:pt-10 pt-5">
+    <div
+      id="hero"
+      className="w-full flex lg:flex-row flex-col gap-10 md:pt-10 pt-5"
+    >
       <div className="flex flex-col gap-8">
         <Badge variant="outline" className="rounded-full px-4 py-2 shadow-md">
           1#Smart Medical Document Analyzer

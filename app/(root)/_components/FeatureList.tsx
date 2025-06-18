@@ -17,7 +17,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/4e/d9/5b/4ed95b2b9337286618ed691bddcced5d.jpg"
+              src="https://i.pinimg.com/1200x/ed/b0/e2/edb0e2b3a9539803ed646387a68eb1fb.jpg"
               alt=""
               width={500}
               height={500}
@@ -41,7 +41,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/0f/64/10/0f6410189f66d9e3b5ff32a08a04151a.jpg"
+              src="https://i.pinimg.com/1200x/6a/48/16/6a4816b4db7a5dc1a5ad3610259d9d86.jpg"
               alt=""
               width={500}
               height={500}
@@ -65,7 +65,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/5d/90/72/5d9072fd6ad8286aec3c0ecd39d5b9cb.jpg"
+              src="https://i.pinimg.com/1200x/ae/9c/7f/ae9c7f6506efe53d00fe3a86f60de319.jpg"
               alt=""
               width={500}
               height={500}
@@ -89,7 +89,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/44/05/27/440527486d5835c218f8521465dfc29b.jpg"
+              src="https://i.pinimg.com/1200x/2c/9f/79/2c9f7935e91f35d136348a8ac03a27f1.jpg"
               alt=""
               width={500}
               height={500}
@@ -112,7 +112,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/7f/98/ca/7f98caa136db977af03946d288440dae.jpg"
+              src="https://i.pinimg.com/1200x/41/fe/a6/41fea6da5ed6e8fa9d515a1950865d78.jpg"
               alt=""
               width={500}
               height={500}
@@ -135,7 +135,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/de/25/17/de25172a1d67b88b368103bcfea3fe12.jpg"
+              src="https://i.pinimg.com/1200x/ca/bb/5e/cabb5e8ec8ff03e89ed3f57af9ebd600.jpg"
               alt=""
               width={500}
               height={500}

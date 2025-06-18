@@ -35,7 +35,7 @@ const HeaderBar = () => {
   return (
     <div className="flex flex-col gap-1">
       <h3 className="text-xl font-semibold">
-        {menuHeader.find((item) => item.pathname === pathname)?.title}
+        {menuHeader.find((item) => item.pathname === pathname)?.title || "Detail Laporan"}
       </h3>
     </div>
   );

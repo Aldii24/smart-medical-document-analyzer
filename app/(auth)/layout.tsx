@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 const AuthLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="w-full min-h-screen flex">
-      <div className="xl:w-1/2 md:flex flex-col hidden bg-background border-r border-colprimary p-10 gap-5 rounded-r-xl">
+      <div className="xl:w-1/2 md:flex flex-col hidden bg-background border-r border-colprimary p-10 gap-5 rounded-r-xl shadow-md">
         <h1 className="text-3xl font-bold text-foreground">
           Selamat Datang di <span className="text-colprimary">Medoc</span>lyzer
         </h1>
