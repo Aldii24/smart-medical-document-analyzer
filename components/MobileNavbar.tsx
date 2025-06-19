@@ -10,8 +10,6 @@ import Image from "next/image";
 import { navItems } from "./NavItems";
 import Link from "next/link";
 
-
-
 const MobileNavbar = ({ userId }: { userId: string | null }) => {
   return (
     <div className="lg:hidden block">
@@ -50,7 +48,7 @@ const MobileNavbar = ({ userId }: { userId: string | null }) => {
           <div className="w-full px-4">
             {userId ? (
               <Link href="/dashboard/medical-report">
-                <button className="px-6 py-3 rounded-full bg-colprimary cursor-pointer w-full">
+                <button className="px-6 py-3 rounded-full bg-colprimary cursor-pointer w-full text-white">
                   Dashboard
                 </button>
               </Link>

@@ -9,32 +9,32 @@ import { useTheme } from "next-themes";
 const FeatureList = () => {
   const { theme } = useTheme();
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
-      <Card className="p-0 max-w-sm w-full mx-auto shadow-md border-none">
+    <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-8 gap-4">
+      <Card className="p-0 max-w-lg w-full h-max mx-auto shadow-md border-none">
         <MagicCard
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
           className="p-0"
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/ed/b0/e2/edb0e2b3a9539803ed646387a68eb1fb.jpg"
+              src="/images/f1.png"
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[350px] object-cover"
+              className="rounded-md w-[450px] h-[250px]"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
             <h3 className="text-xl">Medical Report Translator & Explainer</h3>
             <p className="text-muted-foreground text-sm text-center">
-              Upload foto/PDF hasil lab, rontgen, medical report Gemini
-              translate istilah medis ke bahasa awam Indonesia Penjelasan detail
-              tentang setiap parameter dan artinya
+              Upload foto hasil lab, rontgen, medical report Gemini translate
+              istilah medis ke bahasa awam Indonesia Penjelasan detail tentang
+              setiap parameter dan artinya
             </p>
           </CardFooter>
         </MagicCard>
       </Card>
-      <Card className="p-0 max-w-sm w-full mx-auto shadow-md border-none">
+      <Card className="p-0 max-w-lg w-full h-max mx-auto shadow-md border-none">
         <MagicCard
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
           className="p-0"
@@ -45,7 +45,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[350px] object-cover"
+              className="rounded-md w-[450px] h-[250px]"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
@@ -58,7 +58,7 @@ const FeatureList = () => {
           </CardFooter>
         </MagicCard>
       </Card>
-      <Card className="p-0 max-w-sm w-full mx-auto shadow-md border-none">
+      <Card className="p-0 max-w-lg w-full h-max mx-auto shadow-md border-none">
         <MagicCard
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
           className="p-0"
@@ -69,7 +69,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[350px] object-cover"
+              className="rounded-md w-[450px] h-[250px]"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
@@ -82,7 +82,7 @@ const FeatureList = () => {
           </CardFooter>
         </MagicCard>
       </Card>
-      <Card className="p-0 max-w-sm w-full h-[498px] mx-auto shadow-md border-none">
+      <Card className="p-0 max-w-lg w-full  h-max mx-auto shadow-md border-none">
         <MagicCard
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
           className="p-0"
@@ -93,7 +93,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[350px] object-cover"
+              className="rounded-md w-[450px] h-[250px]"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
@@ -105,7 +105,7 @@ const FeatureList = () => {
           </CardFooter>
         </MagicCard>
       </Card>
-      <Card className="p-0 max-w-sm w-full mx-auto shadow-md border-none">
+      <Card className="p-0 max-w-lg w-full h-max mx-auto shadow-md border-none">
         <MagicCard
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
           className="p-0"
@@ -116,7 +116,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[350px] object-cover"
+              className="rounded-md w-[450px] h-[250px]"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
@@ -128,7 +128,7 @@ const FeatureList = () => {
           </CardFooter>
         </MagicCard>
       </Card>
-      <Card className="p-0 max-w-sm w-full mx-auto shadow-md border-none">
+      <Card className="p-0 max-w-lg w-full h-max mx-auto shadow-md border-none">
         <MagicCard
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
           className="p-0"
@@ -139,7 +139,7 @@ const FeatureList = () => {
               alt=""
               width={500}
               height={500}
-              className="rounded-md w-[450px] h-[350px] object-cover"
+              className="rounded-md w-[450px] h-[250px]"
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">

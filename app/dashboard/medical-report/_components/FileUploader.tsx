@@ -84,7 +84,10 @@ const FileUploader = () => {
         <div className=" border border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg shadow-">
           <FileUpload onChange={handleChangeImage} />
         </div>
-        <ShinyButton className="rounded-full py-4 shadow-md">
+        <ShinyButton
+          disabled={isLoading}
+          className="rounded-full py-4 shadow-md disabled:cursor-not-allowed"
+        >
           {isLoading ? (
             <div className="flex justify-center items-center">
               <Loader2 className="animate-spin mr-2" /> {loadingMessage}
@@ -101,8 +104,9 @@ const FileUploader = () => {
           {" "}
           <div className="flex flex-col gap-4">
             <p className="text-muted-foreground text-sm">
-              1. Pilih file gambar hasil pemeriksaan medis. Usahakan gambar
-              terlihat jelas dan tidak buram.
+              1. Pilih file image / foto hasil pemeriksaan medis anda. Usahakan
+              gambar terlihat sejajar, tidak miring, sepenuhnya jelas dan tidak
+              buram.
             </p>
             <p className="text-muted-foreground text-sm">
               2. Klik tombol <span className="text-colprimary">Translate</span>{" "}
@@ -119,6 +123,14 @@ const FileUploader = () => {
             <p className="text-muted-foreground text-sm">
               5. Hasil akan ditampilkan di bawah halaman ini.
             </p>
+
+            <Separator />
+
+            <i className="text-xs text-muted-foreground">
+              *Note: Hasil laporan yang dihasilkan AI mungkin saja terdapat
+              kesalahan dalam menggambarkan kondisi pasien. Penting untuk
+              konsultasikan kembali dengan dokter anda.{" "}
+            </i>
           </div>
         </CardContent>
       </Card>

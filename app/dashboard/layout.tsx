@@ -8,7 +8,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
     <SidebarProvider>
       <AppSidebar />
       <main className="w-full">
-        <div className="flex items-center">
+        <div className="navbar flex items-center border-b">
           <SidebarTrigger />
           <NavbarDashboard />
         </div>

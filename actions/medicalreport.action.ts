@@ -88,3 +88,21 @@ export const getMedicalReportDetail = async (id: string) => {
     console.log(error);
   }
 };
+
+export const deleteMedicalReport = async (id: string) => {
+  try {
+    const userId = await getDBUserId();
+    if (!userId) throw new Error("Unauthorized");
+
+    await prisma.medicalReport.delete({
+      where: {
+        id,
+      },
+    });
+
+    revalidatePath("/dashboard/medical-report");
+    return { success: true };
+  } catch (error) {
+    return { success: false, error };
+  }
+};

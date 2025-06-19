@@ -12,7 +12,7 @@ const Navbar = async () => {
   if (userId) await syncUser();
 
   return (
-    <nav className="navbar">
+    <nav className="navbar border-b">
       <div className="sub-navbar">
         <div className="flex items-center gap-24">
           <Link href="/#hero" className="flex items-center">

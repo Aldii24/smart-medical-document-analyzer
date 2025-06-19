@@ -3,11 +3,11 @@ import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
-
 import { Toaster } from "@/components/ui/sonner";
+import NextTopLoader from "nextjs-toploader";
 
 const robotoCondensed = Roboto_Condensed({
-  variable: "--font-poppins",
+  variable: "--font-roboto-condensed",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
@@ -26,13 +26,16 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={`${robotoCondensed.variable}  antialiased`}>
+        <body
+          className={`${robotoCondensed.variable} font-roboto-condensed antialiased`}
+        >
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="light"
             enableSystem
             disableTransitionOnChange
           >
+            <NextTopLoader showSpinner={false} color="#328e6e" />
             {children}
             <Toaster />
           </ThemeProvider>

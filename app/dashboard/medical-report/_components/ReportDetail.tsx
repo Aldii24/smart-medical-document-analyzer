@@ -7,13 +7,16 @@ const ReportDetail = ({ report }: { report: any }) => {
   const md = useMemo(
     () =>
       new MarkdownIt({
-        html: true, // Praktik bagus untuk mengizinkan tag HTML jika ada
-        breaks: false, // <-- UBAH INI MENJADI FALSE
+        html: true,
+        breaks: true,
         typographer: true,
         linkify: true,
+        langPrefix: "language-",
+        quotes: "“”‘’",
       }),
     []
   );
+
 
   const htmlContent = useMemo(() => {
     return report.explanation ? md.render(report.explanation) : "";
