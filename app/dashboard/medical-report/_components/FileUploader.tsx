@@ -98,7 +98,7 @@ const FileUploader = () => {
         </ShinyButton>
       </form>
       <Card className="lg:w-1/2 w-full bg-background">
-        <CardHeader className="px-8">✨ Cara penggunaan</CardHeader>
+        <CardHeader className="px-8">✨ Petunjuk Penggunaan</CardHeader>
         <Separator />
         <CardContent>
           {" "}
@@ -129,7 +129,7 @@ const FileUploader = () => {
             <i className="text-xs text-muted-foreground">
               *Note: Hasil laporan yang dihasilkan AI mungkin saja terdapat
               kesalahan dalam menggambarkan kondisi pasien. Penting untuk
-              konsultasikan kembali dengan dokter anda.{" "}
+              konsultasikan kembali dengan tenaga medis yang berpengalaman.
             </i>
           </div>
         </CardContent>

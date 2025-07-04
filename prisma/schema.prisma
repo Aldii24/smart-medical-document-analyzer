@@ -9,18 +9,18 @@ datasource db {
 }
 
 model User {
-  id             String   @id @default(cuid())
-  clerkId        String   @unique
-  email          String   @unique
-  name           String?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id                String   @id @default(cuid())
+  clerkId           String   @unique
+  email             String   @unique
+  name              String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 
-  medicalReports MedicalReport[]
-  symptoms       SymptomEntry[]
-  medications    MedicationEntry[]
-  timelineEvents TimelineEvent[]
-  consultationPrep ConsultationPrep[]
+  medicalReports    MedicalReport[]
+  symptoms          SymptomEntry[]
+  medications       MedicationEntry[]
+  timelineEvents    TimelineEvent[]
+  consultationPrep  ConsultationPrep[]
 }
 
 model MedicalReport {
@@ -37,25 +37,27 @@ model MedicalReport {
 }
 
 model RiskAnalysis {
-  id             String   @id @default(cuid())
-  reportId       String   @unique
-  diabetesRisk   Int?
-  hypertensionRisk Int?
-  cholesterolRisk Int?
-  lifestyleTips  Json?
+  id                  String   @id @default(cuid())
+  reportId            String   @unique
+  diabetesRisk        Int?
+  hypertensionRisk    Int?
+  cholesterolRisk     Int?  
+  strokeRisk          Int?
+  kidneyFailure       Int?
+  lifestyleTips       String? @db.Text()
 
-  report         MedicalReport @relation(fields: [reportId], references: [id])
+  report              MedicalReport @relation(fields: [reportId], references: [id])
 }
 
 model SymptomEntry {
-  id             String   @id @default(cuid())
-  userId         String
-  symptoms       String   // input user (free text)
+  id                    String   @id @default(cuid())
+  userId                String
+  symptoms              String   // input user (free text)
   recommendedSpecialist String?
-  urgencyLevel   String?  // emergency, urgent, routine
-  createdAt      DateTime @default(now())
+  urgencyLevel          String?  // emergency, urgent, routine
+  createdAt             DateTime @default(now())
 
-  user           User     @relation(fields: [userId], references: [id])
+  user                  User     @relation(fields: [userId], references: [id])
 }
 
 model MedicationEntry {
@@ -85,14 +87,14 @@ model TimelineEvent {
 }
 
 model ConsultationPrep {
-  id             String   @id @default(cuid())
-  userId         String
-  symptomsSummary String?
-  suggestedQuestions Json?
-  followUpItems   Json?
-  createdAt       DateTime @default(now())
+  id                  String   @id @default(cuid())
+  userId              String
+  symptomsSummary     String?
+  suggestedQuestions  Json?
+  followUpItems       Json?
+  createdAt           DateTime @default(now())
 
-  user            User     @relation(fields: [userId], references: [id])
+  user                User     @relation(fields: [userId], references: [id])
 }
 
 
