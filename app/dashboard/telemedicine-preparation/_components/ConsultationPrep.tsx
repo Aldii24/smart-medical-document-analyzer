@@ -1,4 +1,3 @@
-// components/ConsultationPrepForm.tsx
 "use client";
 
 import { useState } from "react";
@@ -42,11 +41,10 @@ export default function ConsultationPrepForm() {
 
       if (response.success) {
         setSuccess(true);
-        setSymptomsSummary(""); // Clear form
+        setSymptomsSummary("");
 
-        // Redirect to detail page after short delay
         setTimeout(() => {
-          router.push(`/consultation-prep/${response.data?.id}`);
+          router.push(`/telemedicine-preparation/${response.data?.id}`);
         }, 1500);
       } else {
         setError(response.error || "Terjadi kesalahan saat memproses");
@@ -61,7 +59,6 @@ export default function ConsultationPrepForm() {
 
   return (
     <div className="space-y-6">
-      {/* Form Input */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -110,7 +107,6 @@ export default function ConsultationPrepForm() {
         </CardContent>
       </Card>
 
-      {/* Success Display */}
       {success && (
         <Alert className="bg-green-50 border-green-200">
           <CheckCircle className="h-4 w-4 text-green-600" />
@@ -120,8 +116,6 @@ export default function ConsultationPrepForm() {
           </AlertDescription>
         </Alert>
       )}
-
-      {/* Error Display */}
       {error && (
         <Alert variant="destructive">
           <AlertCircle className="h-4 w-4" />
