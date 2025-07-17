@@ -1,4 +1,3 @@
-// app/consultation-prep/page.tsx
 import { Suspense } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -53,7 +52,6 @@ export default function ConsultationPrepPage() {
             Riwayat Persiapan Konsultasi
           </h2>
 
-          {/* List consultation preps yang sudah ada */}
           <Suspense fallback={<ConsultationPrepsLoading />}>
             <ConsultationPrepsContent />
           </Suspense>

@@ -125,10 +125,8 @@ export default function ConsultationPrepList({
 
           <CardContent>
             <div className="mb-4">
-              <h4 className="font-medium text-sm text-gray-700 mb-2">
-                Ringkasan Gejala
-              </h4>
-              <p className="text-gray-600 text-sm line-clamp-2">
+              <h4 className="font-medium text-sm mb-2">Ringkasan Gejala</h4>
+              <p className="text-muted-foreground text-sm line-clamp-2">
                 {prep.symptomsSummary || "Tidak ada ringkasan gejala"}
               </p>
             </div>

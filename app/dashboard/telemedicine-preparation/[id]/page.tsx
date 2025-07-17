@@ -1,4 +1,3 @@
-// app/consultation-prep/[id]/page.tsx
 import { notFound } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,7 @@ import {
   HelpCircle,
   CheckCircle,
   FileText,
+  MessageCircleWarning,
 } from "lucide-react";
 import Link from "next/link";
 import { getConsultationPrepById } from "@/actions/consultationPrep.action";
@@ -31,10 +31,10 @@ export default async function ConsultationPrepDetailPage({
   }
 
   return (
-    <div className="container mx-auto p-6 w-full min-h-screen">
+    <div className="mx-auto p-6 w-full min-h-screen">
       <div className="mb-8">
         <div className="flex items-center gap-4 mb-4">
-          <Link href="/telemedicine-preparation">
+          <Link href="/dashboard/telemedicine-preparation">
             <Button variant="outline" size="sm" className="cursor-pointer">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Kembali
@@ -52,10 +52,8 @@ export default async function ConsultationPrepDetailPage({
           </Badge>
         </div>
 
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Detail Persiapan Konsultasi
-        </h1>
-        <p className="text-gray-600">
+        <h1 className="text-3xl font-bold mb-2">Detail Persiapan Konsultasi</h1>
+        <p className="text-muted-foreground">
           Pertanyaan dan follow-up yang disarankan untuk konsultasi dengan
           dokter
         </p>
@@ -114,7 +112,6 @@ export default async function ConsultationPrepDetailPage({
           </CardContent>
         </Card>
 
-        {/* Follow-up Items */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -150,10 +147,12 @@ export default async function ConsultationPrepDetailPage({
           </CardContent>
         </Card>
 
-        {/* Tips */}
         <Card className="bg-yellow-50 border-yellow-200">
           <CardHeader>
-            <CardTitle className="text-yellow-800">Tips Konsultasi</CardTitle>
+            <CardTitle className="text-yellow-800 flex items-center gap-2">
+              {" "}
+              <MessageCircleWarning /> Tips Konsultasi
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-2 text-sm text-yellow-700">

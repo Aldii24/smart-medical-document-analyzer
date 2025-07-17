@@ -99,7 +99,7 @@ export default function ConsultationPrepForm() {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Memproses...
+                  <p className="text-muted-foreground">Memproses...</p>
                 </>
               ) : (
                 <h3 className="text-white">Generate Persiapan Konsultasi </h3>

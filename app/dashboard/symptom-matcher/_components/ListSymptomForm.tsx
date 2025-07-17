@@ -37,7 +37,6 @@ const ListSymptomForm = ({ symptom }: any) => {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        {/* Specialist Recommendation */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <User className="w-4 h-4 text-muted-foreground" />
@@ -52,7 +51,6 @@ const ListSymptomForm = ({ symptom }: any) => {
           </div>
         </div>
 
-        {/* Urgency Level */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4 text-muted-foreground" />

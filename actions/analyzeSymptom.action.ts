@@ -19,7 +19,7 @@ export const analyzeSymptom = async (symptoms: string) => {
     console.log("User ID:", userId);
 
     if (!userId) {
-      console.error("❌ User not logged in");
+      console.error("User not logged in");
       throw new Error("User not logged in");
     }
 
@@ -61,12 +61,12 @@ Contoh format jawaban yang benar:
       },
     });
 
-    console.log("📡 AI response received");
+    console.log("AI response received");
     const result = response.text;
-    console.log("🔍 AI Raw Response:", result);
+    console.log("AI Raw Response:", result);
 
     if (!result) {
-      console.error("❌ No response received from AI model");
+      console.error("No response received from AI model");
       throw new Error("No response received from AI model");
     }
 
@@ -74,29 +74,29 @@ Contoh format jawaban yang benar:
     let data;
     try {
       data = JSON.parse(result);
-      console.log("✅ JSON parsed successfully:", data);
+      console.log("JSON parsed successfully:", data);
     } catch (parseError) {
-      console.error("❌ JSON parsing failed:", parseError);
+      console.error("JSON parsing failed:", parseError);
       console.error("Raw response that failed to parse:", result);
       throw new Error("Failed to parse AI response");
     }
 
-    console.log("🔍 Validating response structure...");
+    console.log("Validating response structure...");
     if (!data.recommendedSpecialist || !data.urgencyLevel) {
-      console.error("❌ Invalid response structure:", data);
+      console.error("Invalid response structure:", data);
       throw new Error("Invalid response structure from AI");
     }
 
-    console.log("🗄️  Checking database connection...");
+    console.log("Checking database connection...");
     try {
       await prisma.$connect();
-      console.log("✅ Database connected");
+      console.log("Database connected");
     } catch (dbError) {
-      console.error("❌ Database connection failed:", dbError);
+      console.error("Database connection failed:", dbError);
       throw new Error("Database connection failed");
     }
 
-    console.log("💾 Saving to database...");
+    console.log("Saving to database...");
     const entry = await prisma.symptomEntry.create({
       data: {
         userId,
@@ -106,11 +106,10 @@ Contoh format jawaban yang benar:
       },
     });
 
-    console.log("✅ Entry created successfully:", entry.id);
     revalidatePath("/dashboard/symptom-matcher");
     return { success: true, entry };
   } catch (error) {
-    console.error("💥 analyzeSymptom ERROR:", error);
+    console.error("analyzeSymptom ERROR:", error);
 
     if (error instanceof Error) {
       console.error("Error name:", error.name);
@@ -131,11 +130,14 @@ export const getAllSymptoms = async () => {
       where: {
         userId,
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
 
     return entries;
   } catch (error) {
-    console.error("💥 getAllSymptoms ERROR:", error);
+    console.error("getAllSymptoms ERROR:", error);
     throw error;
   }
 };
