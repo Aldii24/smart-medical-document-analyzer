@@ -15,15 +15,16 @@ import Link from "next/link";
 import { getConsultationPrepById } from "@/actions/consultationPrep.action";
 
 interface ConsultationPrepDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function ConsultationPrepDetailPage({
   params,
 }: ConsultationPrepDetailPageProps) {
-  const consultationPrep = await getConsultationPrepById(params.id);
+  const id = (await params).id;
+  const consultationPrep = await getConsultationPrepById(id);
 
   if (!consultationPrep) {
     notFound();
@@ -171,7 +172,8 @@ export default async function ConsultationPrepDetailPage({
 export async function generateMetadata({
   params,
 }: ConsultationPrepDetailPageProps) {
-  const consultationPrep = await getConsultationPrepById(params.id);
+  const id = (await params).id;
+  const consultationPrep = await getConsultationPrepById(id);
 
   if (!consultationPrep) {
     return {
