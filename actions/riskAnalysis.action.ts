@@ -52,3 +52,23 @@ export const getAnalyzeRisk = async (reportId: string) => {
     console.log(error);
   }
 };
+
+export const getRiskAnalysisById = async (id: string) => {
+  try {
+    const { userId } = await auth();
+    if (!userId) throw new Error("Unauthorized");
+
+    const data = await prisma.riskAnalysis.findUnique({
+      where: {
+        id,
+      },
+      include: {
+        report: true,
+      },
+    });
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

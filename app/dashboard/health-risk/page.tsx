@@ -2,7 +2,6 @@ import { getAllMedicalReports } from "@/actions/medicalreport.action";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import ListMedicalReport from "./_components/ListMedicalReport";
-import { getAnalyzeRisk } from "@/actions/riskAnalysis.action";
 
 export const metadata = {
   title: "SMDA | Health Risk",

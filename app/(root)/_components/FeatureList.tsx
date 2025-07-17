@@ -41,7 +41,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/6a/48/16/6a4816b4db7a5dc1a5ad3610259d9d86.jpg"
+              src="/images/f2.png"
               alt=""
               width={500}
               height={500}
@@ -65,7 +65,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/ae/9c/7f/ae9c7f6506efe53d00fe3a86f60de319.jpg"
+              src="/images/f3.png"
               alt=""
               width={500}
               height={500}
@@ -89,7 +89,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/2c/9f/79/2c9f7935e91f35d136348a8ac03a27f1.jpg"
+              src="/images/f4.png"
               alt=""
               width={500}
               height={500}
@@ -112,7 +112,7 @@ const FeatureList = () => {
         >
           <CardContent className="p-4">
             <Image
-              src="https://i.pinimg.com/1200x/41/fe/a6/41fea6da5ed6e8fa9d515a1950865d78.jpg"
+              src="/images/f5.png"
               alt=""
               width={500}
               height={500}
@@ -124,30 +124,6 @@ const FeatureList = () => {
             <p className="text-muted-foreground text-sm text-center">
               Digital health record yang mudah diakses Timeline visual dari
               semua medical documents Export summary untuk dokter baru
-            </p>
-          </CardFooter>
-        </MagicCard>
-      </Card>
-      <Card className="p-0 max-w-lg w-full h-max mx-auto shadow-md border-none">
-        <MagicCard
-          gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-          className="p-0"
-        >
-          <CardContent className="p-4">
-            <Image
-              src="https://i.pinimg.com/1200x/ca/bb/5e/cabb5e8ec8ff03e89ed3f57af9ebd600.jpg"
-              alt=""
-              width={500}
-              height={500}
-              className="rounded-md w-[450px] h-[250px]"
-            />
-          </CardContent>
-          <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
-            <h3 className="text-xl">Telemedicine Preparation Assistant</h3>
-            <p className="text-muted-foreground text-sm text-center">
-              Generate pertanyaan yang tepat sebelum konsultasi dokter Summary
-              gejala dan medical history untuk dibawa ke dokter
-              Post-consultation action items tracker
             </p>
           </CardFooter>
         </MagicCard>

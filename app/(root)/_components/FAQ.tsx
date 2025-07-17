@@ -9,15 +9,17 @@ import { Badge } from "@/components/ui/badge";
 const faqs = [
   {
     question: "Apakah aplikasi ini sepenuhnya gratis digunakan?",
-    answer: "Untuk sekarang gratis, gatau besok.",
+    answer: "Ya, aplikasi ini sepenuhnya gratis digunakan.",
   },
   {
     question: "Apa saja fitur yang tersedia di aplikasi ini?",
-    answer: "Liat sendiri lah, jangan males baca.",
+    answer:
+      "Fitur-fitur yang tersedia di aplikasi ini dapat Anda lihat pada bagian Fitur Kami.",
   },
   {
     question: "Apakah hasil analisis dokumen dapat dibagi secara publik?",
-    answer: "Simpen aja sendiri, jangan dibagi-bagi.",
+    answer:
+      "Ya, hasil analisis dokumen dapat dibagi secara publik, tetapi lebih baik jangan membagikan hasil analisis dokumen kepada orang lain.",
   },
 ];
 

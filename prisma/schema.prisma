@@ -18,7 +18,6 @@ model User {
 
   medicalReports    MedicalReport[]
   symptoms          SymptomEntry[]
-  medications       MedicationEntry[]
   timelineEvents    TimelineEvent[]
   consultationPrep  ConsultationPrep[]
 }
@@ -52,36 +51,22 @@ model RiskAnalysis {
 model SymptomEntry {
   id                    String   @id @default(cuid())
   userId                String
-  symptoms              String   // input user (free text)
+  symptoms              String   
   recommendedSpecialist String?
-  urgencyLevel          String?  // emergency, urgent, routine
+  urgencyLevel          String?  
   createdAt             DateTime @default(now())
 
   user                  User     @relation(fields: [userId], references: [id])
-}
-
-model MedicationEntry {
-  id             String   @id @default(cuid())
-  userId         String
-  drugName       String
-  photoUrl       String?
-  description    String?
-  dosage         String?
-  interactions   Json?
-  sideEffects    Json?
-  createdAt      DateTime @default(now())
-
-  user           User     @relation(fields: [userId], references: [id])
 }
 
 
 model TimelineEvent {
   id             String   @id @default(cuid())
   userId         String
-  type           String   // e.g. "report", "consultation", "medication"
+  type           String   // e.g. "report", "consultation"
   title          String
   date           DateTime
-  data           Json?
+  data           String?
 
   user           User     @relation(fields: [userId], references: [id])
 }
@@ -90,8 +75,8 @@ model ConsultationPrep {
   id                  String   @id @default(cuid())
   userId              String
   symptomsSummary     String?
-  suggestedQuestions  Json?
-  followUpItems       Json?
+  suggestedQuestions  String?
+  followUpItems       String?
   createdAt           DateTime @default(now())
 
   user                User     @relation(fields: [userId], references: [id])

@@ -9,10 +9,6 @@ export const navItems = [
     label: "Faq",
     href: "/#faq",
   },
-  {
-    label: "Blog",
-    href: "/blog",
-  },
 ];
 
 const NavItems = () => {

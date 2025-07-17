@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import MarkdownIt from "markdown-it";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { getAnalyzeRisk, riskAnalysis } from "@/actions/riskAnalysis.action";
@@ -22,6 +22,27 @@ const ListMedicalReport = ({ medicalReports }: { medicalReports: any }) => {
     {}
   );
 
+  // 🔒 Gunakan ref buat nge-track report yang udah di-fetch biar gak refetch terus
+  const fetchedIds = useRef<Set<string>>(new Set());
+
+  useEffect(() => {
+    const fetchAllRisks = async () => {
+      for (const report of medicalReports || []) {
+        if (!fetchedIds.current.has(report.id)) {
+          const data = await getAnalyzeRisk(report.id);
+          if (data) {
+            setRiskAnalysMap((prev) => ({ ...prev, [report.id]: data }));
+          }
+          fetchedIds.current.add(report.id);
+        }
+      }
+    };
+
+    if (medicalReports?.length > 0) {
+      fetchAllRisks();
+    }
+  }, [medicalReports]);
+
   const handleCreateRiskAnalysis = async (reportId: string) => {
     setLoadingReportId(reportId);
     try {
@@ -29,7 +50,6 @@ const ListMedicalReport = ({ medicalReports }: { medicalReports: any }) => {
       toast.success("Penjelasan medis berhasil ditambahkan.");
 
       const updatedData = await getAnalyzeRisk(reportId);
-
       if (updatedData) {
         setRiskAnalysMap((prev) => ({ ...prev, [reportId]: updatedData }));
       }
@@ -43,17 +63,8 @@ const ListMedicalReport = ({ medicalReports }: { medicalReports: any }) => {
   return (
     <>
       {medicalReports?.map((report: any) => {
-        useEffect(() => {
-          const getRisk = async () => {
-            const data = await getAnalyzeRisk(report.id);
-            if (data) {
-              setRiskAnalysMap((prev) => ({ ...prev, [report.id]: data }));
-            }
-          };
-          getRisk();
-        }, []);
-
         const htmlContent = md.render(report.explanation);
+        const riskResult = riskAnalysMap[report.id];
 
         return (
           <Card key={report.id} className="bg-background">
@@ -61,7 +72,7 @@ const ListMedicalReport = ({ medicalReports }: { medicalReports: any }) => {
               <CardTitle className="w-1/2 text-xs tracking-widest line-clamp-1">
                 {report.title}
               </CardTitle>
-              <span className="w-1/2 text-muted-foreground text-xs">
+              <span className="w-1/2 text-muted-foreground text-xs text-right">
                 {new Date(report.createdAt).toLocaleDateString("id-ID", {
                   year: "numeric",
                   month: "long",
@@ -69,37 +80,46 @@ const ListMedicalReport = ({ medicalReports }: { medicalReports: any }) => {
                 })}
               </span>
             </CardHeader>
+
             <CardContent className="flex flex-col gap-2">
               <Image
                 src={report.fileUrl}
                 alt={report.title}
                 width={500}
                 height={500}
-                className="w-full md:h-[200px] h-[150px] rounded-md"
+                className="w-full md:h-[200px] h-[150px] rounded-md object-cover"
               />
+
               <div
                 className="prose dark:prose-invert text-muted-foreground"
                 dangerouslySetInnerHTML={{
                   __html: htmlContent.slice(0, 50) + "...",
                 }}
               />
-              <Button
-                onClick={() => handleCreateRiskAnalysis(report.id)}
-                disabled={loadingReportId === report.id}
-                type="submit"
-                className="rounded-full bg-colprimary text-white hover:bg-colprimary cursor-pointer tracking-widest disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                {loadingReportId === report.id ? (
-                  <div className="flex gap-1 items-center">
-                    <Loader2 className="animate-spin" />
-                    Sedang menganalisis
-                  </div>
-                ) : riskAnalysMap[report.id] ? (
-                  <Link href="/">Lihat hasil</Link>
-                ) : (
-                  "Analisis"
-                )}
-              </Button>
+
+              {riskResult ? (
+                <Link
+                  href={`/dashboard/health-risk/${riskResult.id}`}
+                  className="rounded-full bg-colprimary text-white hover:bg-colprimary px-4 py-2 text-center text-sm tracking-widest"
+                >
+                  Lihat hasil
+                </Link>
+              ) : (
+                <Button
+                  onClick={() => handleCreateRiskAnalysis(report.id)}
+                  disabled={loadingReportId === report.id}
+                  type="submit"
+                  className="rounded-full bg-colprimary text-white hover:bg-colprimary tracking-widest disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
+                >
+                  {loadingReportId === report.id ? (
+                    <div className="flex items-center justify-center">
+                      <Loader2 className="animate-spin" />
+                    </div>
+                  ) : (
+                    "Analisis"
+                  )}
+                </Button>
+              )}
             </CardContent>
           </Card>
         );

@@ -26,11 +26,6 @@ export const items = [
     icon: ScanSearch,
   },
   {
-    title: "Panduan Pengobatan",
-    url: "/dashboard/medication-guide",
-    icon: BriefcaseMedical,
-  },
-  {
     title: "Riwayat Medis",
     url: "/dashboard/medical-history",
     icon: History,

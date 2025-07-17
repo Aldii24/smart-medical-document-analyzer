@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <main className="md:px-16 px-4 md:pt-10 pt-5">
       <Hero />
-      <BlogList />
+      {/* <BlogList /> */}
       <KeyFeatures />
       <Faq />
     </main>
