@@ -44,7 +44,9 @@ export default function ConsultationPrepForm() {
         setSymptomsSummary("");
 
         setTimeout(() => {
-          router.push(`/telemedicine-preparation/${response.data?.id}`);
+          router.push(
+            `/dashboard/telemedicine-preparation/${response.data?.id}`
+          );
         }, 1500);
       } else {
         setError(response.error || "Terjadi kesalahan saat memproses");
