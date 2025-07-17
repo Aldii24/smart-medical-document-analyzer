@@ -1,4 +1,3 @@
-// components/ConsultationPrepList.tsx
 "use client";
 
 import { useState } from "react";
@@ -102,7 +101,11 @@ export default function ConsultationPrepList({
               </div>
               <div className="flex items-center gap-2">
                 <Link href={`/dashboard/telemedicine-preparation/${prep.id}`}>
-                  <Button variant="outline" size="sm" className="cursor-pointer">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="cursor-pointer"
+                  >
                     <Eye className="h-4 w-4 mr-2" />
                     Lihat Detail
                   </Button>
@@ -140,7 +143,7 @@ export default function ConsultationPrepList({
                 </Badge>
               </div>
 
-              <Link href={`/consultation-prep/${prep.id}`}>
+              <Link href={`/dashboard/telemedicine-preparation/${prep.id}`}>
                 <Button
                   variant="ghost"
                   size="sm"
