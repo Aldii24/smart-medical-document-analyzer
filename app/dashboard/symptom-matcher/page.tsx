@@ -17,7 +17,7 @@ const SymptomMatcherPage = async () => {
       <h2 className="text-2xl font-bold mb-6  pt-10">Daftar Gejala</h2>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
         {allSymptom?.map((symptom: any) => (
-          <ListSymptomForm symptom={symptom} />
+          <ListSymptomForm key={symptom.id} symptom={symptom} />
         ))}
       </div>
     </main>

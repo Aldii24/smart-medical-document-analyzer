@@ -4,6 +4,7 @@ import { GoogleGenAI } from "@google/genai";
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "@/lib/prisma";
 import { getDBUserId } from "./user.action";
+import { revalidatePath } from "next/cache";
 
 const genAI = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY!,
@@ -106,6 +107,7 @@ Contoh format jawaban yang benar:
     });
 
     console.log("✅ Entry created successfully:", entry.id);
+    revalidatePath("/dashboard/symptom-matcher");
     return { success: true, entry };
   } catch (error) {
     console.error("💥 analyzeSymptom ERROR:", error);
