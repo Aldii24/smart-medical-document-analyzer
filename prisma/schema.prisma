@@ -45,7 +45,7 @@ model RiskAnalysis {
   kidneyFailure       Int?
   lifestyleTips       String? @db.Text()
 
-  report              MedicalReport @relation(fields: [reportId], references: [id])
+  report              MedicalReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
 }
 
 model SymptomEntry {

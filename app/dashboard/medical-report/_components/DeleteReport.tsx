@@ -21,19 +21,24 @@ const DeleteReport = ({ reportId }: { reportId: string }) => {
   const [open, setOpen] = useState(false);
 
   const handleDelete = async () => {
-    setIsDeleting(true);
-    try {
-      const result = await deleteMedicalReport(reportId);
-      if (result.success) {
-        toast.success("Laporan berhasil dihapus.");
-        setOpen(false);
-      }
-    } catch (error) {
-      toast.error("Gagal menghapus laporan.");
-    } finally {
-      setIsDeleting(false);
+  setIsDeleting(true);
+  try {
+    const result = await deleteMedicalReport(reportId);
+    console.log("Delete result:", result); // DEBUG
+    if (result.success) {
+      toast.success("Laporan berhasil dihapus.");
+      setOpen(false);
+    } else {
+      toast.error("Gagal menghapus laporan. Cek console.");
     }
-  };
+  } catch (error) {
+    console.error(error);
+    toast.error("Gagal menghapus laporan.");
+  } finally {
+    setIsDeleting(false);
+  }
+};
+
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
