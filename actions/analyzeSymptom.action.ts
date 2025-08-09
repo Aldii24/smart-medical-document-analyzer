@@ -1,7 +1,6 @@
 "use server";
 
 import { GoogleGenAI } from "@google/genai";
-import { auth } from "@clerk/nextjs/server";
 import { prisma } from "@/lib/prisma";
 import { getDBUserId } from "./user.action";
 import { revalidatePath } from "next/cache";
@@ -11,24 +10,18 @@ const genAI = new GoogleGenAI({
 });
 
 export const analyzeSymptom = async (symptoms: string) => {
-  console.log("analyzeSymptom called with:", symptoms);
-
   try {
-    console.log("Checking authentication...");
     const userId = await getDBUserId();
-    console.log("User ID:", userId);
 
     if (!userId) {
       console.error("User not logged in");
       throw new Error("User not logged in");
     }
 
-    console.log("Checking API key...");
     if (!process.env.GEMINI_API_KEY) {
       console.error("GEMINI_API_KEY not found");
       throw new Error("API key not configured");
     }
-    console.log("API key exists");
 
     const prompt = `Berikut adalah gejala yang dialami oleh pasien:
 
@@ -50,9 +43,6 @@ Contoh format jawaban yang benar:
 }
 `;
 
-    console.log("Prompt prepared, length:", prompt.length);
-
-    console.log("Calling AI model...");
     const response = await genAI.models.generateContent({
       model: "gemini-2.5-flash",
       contents: prompt,
@@ -61,16 +51,13 @@ Contoh format jawaban yang benar:
       },
     });
 
-    console.log("AI response received");
     const result = response.text;
-    console.log("AI Raw Response:", result);
 
     if (!result) {
       console.error("No response received from AI model");
       throw new Error("No response received from AI model");
     }
 
-    console.log("📊 Parsing JSON...");
     let data;
     try {
       data = JSON.parse(result);
@@ -81,22 +68,18 @@ Contoh format jawaban yang benar:
       throw new Error("Failed to parse AI response");
     }
 
-    console.log("Validating response structure...");
     if (!data.recommendedSpecialist || !data.urgencyLevel) {
       console.error("Invalid response structure:", data);
       throw new Error("Invalid response structure from AI");
     }
 
-    console.log("Checking database connection...");
     try {
       await prisma.$connect();
-      console.log("Database connected");
     } catch (dbError) {
       console.error("Database connection failed:", dbError);
       throw new Error("Database connection failed");
     }
 
-    console.log("Saving to database...");
     const entry = await prisma.symptomEntry.create({
       data: {
         userId,
@@ -139,5 +122,23 @@ export const getAllSymptoms = async () => {
   } catch (error) {
     console.error("getAllSymptoms ERROR:", error);
     throw error;
+  }
+};
+
+export const deleteSymptomEntry = async (id: string) => {
+  try {
+    const userId = await getDBUserId();
+    if (!userId) throw new Error("Unauthorized");
+
+    const entry = await prisma.symptomEntry.delete({
+      where: {
+        id,
+      },
+    });
+
+    revalidatePath("/dashboard/symptom-matcher");
+    return { success: true, entry };
+  } catch (error) {
+    return { success: false, error };
   }
 };

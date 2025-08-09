@@ -22,7 +22,6 @@ const ListMedicalReport = ({ medicalReports }: { medicalReports: any }) => {
     {}
   );
 
-  // 🔒 Gunakan ref buat nge-track report yang udah di-fetch biar gak refetch terus
   const fetchedIds = useRef<Set<string>>(new Set());
 
   useEffect(() => {
@@ -107,9 +106,9 @@ const ListMedicalReport = ({ medicalReports }: { medicalReports: any }) => {
               ) : (
                 <Button
                   onClick={() => handleCreateRiskAnalysis(report.id)}
-                  disabled={loadingReportId === report.id}
+                  disabled={loadingReportId === report.id && riskResult}
                   type="submit"
-                  className="rounded-full bg-colprimary text-white hover:bg-colprimary tracking-widest disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
+                  className="rounded-full bg-colprimary text-white hover:bg-colprimary tracking-widest disabled:bg-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
                 >
                   {loadingReportId === report.id ? (
                     <div className="flex items-center justify-center">

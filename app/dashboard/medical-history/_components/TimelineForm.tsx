@@ -39,7 +39,7 @@ export const HealthTimeline = () => {
             {new Date(item.date).toLocaleString()}
           </div>
           <div className="font-semibold capitalize">{item.title}</div>
-          <div className="text-sm">{item.data}</div>
+          <div className="text-sm">{item.data.slice(0, 250)}...</div>
           <div className="text-xs italic text-gray-400">({item.type})</div>
         </div>
       ))}

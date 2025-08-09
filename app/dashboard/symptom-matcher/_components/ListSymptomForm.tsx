@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { User, AlertTriangle, Clock, Stethoscope } from "lucide-react";
+import DeleteSymptom from "./DeleteSymptom";
 
 const ListSymptomForm = ({ symptom }: any) => {
   const getUrgencyConfig = (urgencyLevel: string) => {
@@ -30,11 +31,12 @@ const ListSymptomForm = ({ symptom }: any) => {
 
   return (
     <Card className="hover:shadow-lg transition-shadow duration-300">
-      <CardHeader className="pb-3">
+      <CardHeader className="flex justify-between items-center pb-3">
         <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
           <Stethoscope className="w-5 h-5 text-primary" />
           {symptom.symptoms}
         </CardTitle>
+        <DeleteSymptom sympomId={symptom.id} />
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-3">

@@ -63,7 +63,7 @@ model SymptomEntry {
 model TimelineEvent {
   id             String   @id @default(cuid())
   userId         String
-  type           String   // e.g. "report", "consultation"
+  type           String   
   title          String
   date           DateTime
   data           String?
