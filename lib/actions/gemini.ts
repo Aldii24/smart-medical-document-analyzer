@@ -26,7 +26,7 @@ NOTE:
 - Dan berikan rekomendasi lebih lanjut sesuai dengan kondisi kesehatan pasien.
 `;
   const response = await genAI.models.generateContent({
-    model: "gemini-2.5-flash",
+    model: "gemini-2.5-flash-lite",
     contents: prompt,
   });
 
@@ -68,7 +68,7 @@ export const analyzeRisk = async (
     `;
 
     const response = await genAI.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-2.5-flash-lite",
       contents: prompt,
       config: {
         responseMimeType: "application/json",

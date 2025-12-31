@@ -2,7 +2,6 @@
 
 import {
   BookType,
-  BriefcaseMedical,
   ChartLine,
   History,
   ScanSearch,

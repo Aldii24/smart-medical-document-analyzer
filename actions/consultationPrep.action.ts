@@ -58,9 +58,8 @@ export async function generateConsultationPrep(symptomsSummary: string) {
       - Fokus pada aspek terpenting dari gejala yang dijelaskan
     `;
 
-    // Generate AI response
     const response = await genAI.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-2.5-flash-lite",
       contents: prompt,
       config: {
         responseMimeType: "application/json",
@@ -75,7 +74,6 @@ export async function generateConsultationPrep(symptomsSummary: string) {
 
     const data: ConsultationPrepResult = JSON.parse(result);
 
-    // Validate the response structure
     if (!data.suggestedQuestions || !data.followUpItems) {
       throw new Error("Invalid response structure from AI model");
     }
@@ -87,7 +85,6 @@ export async function generateConsultationPrep(symptomsSummary: string) {
       throw new Error("Invalid response format from AI model");
     }
 
-    // Save to database
     const consultationPrep = await prisma.consultationPrep.create({
       data: {
         userId,
@@ -97,7 +94,6 @@ export async function generateConsultationPrep(symptomsSummary: string) {
       },
     });
 
-    // Revalidate the consultation prep page
     revalidatePath("/dashboard/telemedicine-preparation");
 
     return {
@@ -163,7 +159,6 @@ export async function deleteConsultationPrep(id: string) {
       throw new Error("Unauthorized");
     }
 
-    // Verify ownership
     const consultationPrep = await prisma.consultationPrep.findUnique({
       where: { id },
       select: { userId: true },
@@ -203,7 +198,7 @@ export async function getConsultationPrepById(id: string) {
     const consultationPrep = await prisma.consultationPrep.findUnique({
       where: {
         id,
-        userId, // Ensure user can only access their own data
+        userId,
       },
     });
 

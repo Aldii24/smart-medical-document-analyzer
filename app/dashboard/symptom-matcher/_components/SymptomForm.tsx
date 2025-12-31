@@ -62,8 +62,8 @@ const SymptomForm = () => {
       >
         {isLoading ? (
           <>
-            <Loader2Icon className="animate-spin mr-2 h-4 w-4" />
-            Menganalisis...
+            <Loader2Icon className="animate-spin mr-2 h-4 w-4 text-white" />
+            <p className="text-white">Menganalisis...</p>
           </>
         ) : (
           <h3 className="text-white">Cek Gejala</h3>

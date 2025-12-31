@@ -1,6 +1,6 @@
 "use server";
 
-import { explainMedicalText } from "@/lib/actions/gemini"; // Pastikan path ini benar
+import { explainMedicalText } from "@/lib/actions/gemini"; 
 import { prisma } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { getDBUserId } from "./user.action";

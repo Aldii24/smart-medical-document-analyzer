@@ -27,7 +27,7 @@ export async function createTimelineEvent(formData: {
     },
   });
 
-  revalidatePath("/dashboard"); // sesuaikan path
+  revalidatePath("/dashboard"); 
 }
 
 export async function getAllTimelineEvents() {
@@ -90,7 +90,6 @@ export async function getAllTimelineEvents() {
     })),
   ];
 
-  // Sort dari terbaru ke terlama
   timeline.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -98,7 +97,6 @@ export async function getAllTimelineEvents() {
   return timeline;
 }
 
-// server action
 export async function getTimelineEvents() {
   const user = await currentUser();
   if (!user) throw new Error("Unauthorized");

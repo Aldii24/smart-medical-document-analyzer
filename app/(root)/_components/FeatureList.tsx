@@ -97,10 +97,10 @@ const FeatureList = () => {
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
-            <h3 className="text-xl">Medication Guide & Interaction Checker</h3>
+            <h3 className="text-xl">Medical History Timeline</h3>
             <p className="text-muted-foreground text-sm text-center">
-              Scan foto obat untuk info lengkap dalam bahasa Indonesia Check
-              interaksi antar obat yang sedang dikonsumsi
+              Digital health record yang mudah diakses Timeline visual dari
+              semua medical documents Export summary untuk dokter baru
             </p>
           </CardFooter>
         </MagicCard>
@@ -120,10 +120,10 @@ const FeatureList = () => {
             />
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-4 border-t border-border [.border-t]:pt-4">
-            <h3 className="text-xl">Medical History Timeline</h3>
+            <h3 className="text-xl">Pre-Consult Questions</h3>
             <p className="text-muted-foreground text-sm text-center">
-              Digital health record yang mudah diakses Timeline visual dari
-              semua medical documents Export summary untuk dokter baru
+              Summary gejala dan medical history untuk dibawa ke dokter
+              Post-consultation action items tracker
             </p>
           </CardFooter>
         </MagicCard>
