@@ -14,7 +14,7 @@ const genAI = new GoogleGenAI({
 });
 
 export const explainMedicalText = async (text: string): Promise<any> => {
-  const prompt = `Berikan penjelasan medis dalam Bahasa Indonesia yang mudah dipahami dari hasil lab berikut:
+  const prompt = `Berikan penjelasan medis profesional dalam Bahasa Indonesia yang mudah dipahami dari hasil lab berikut:
 
 ${text}
 
